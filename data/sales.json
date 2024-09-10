@@ -1,115 +1,167 @@
 [
-    {
-      "id": 1,
-      "id_usuario": 1,
-      "fecha": "2024-04-23",
-      "total": 26.48,
-      "direccion": "Calle Principal, 123",
-      "productos": [
-        { "id": 2, "cantidad": 1 }, 
-        { "id": 5, "cantidad": 2 }  
-      ]
-    },
-    {
-      "id": 2,
-      "id_usuario": 5,
-      "fecha": "2024-04-22",
-      "total": 57.99,
-      "direccion": "Avenida Central, 456",
-      "productos": [
-        { "id": 3, "cantidad": 1 }, 
-        { "id": 9, "cantidad": 1 }, 
-        { "id": 10, "cantidad": 1 } 
-      ]
-    },
-    {
-      "id": 3,
-      "id_usuario": 7,
-      "fecha": "2024-04-21",
-      "total": 38.97,
-      "direccion": "Calle Secundaria, 789",
-      "productos": [
-        { "id": 1, "cantidad": 1 }, 
-        { "id": 4, "cantidad": 2 } 
-      ]
-    },
-    {
-      "id": 4,
-      "id_usuario": 9,
-      "fecha": "2024-04-20",
-      "total": 36.97,
-      "direccion": "Plaza Mayor, 567",
-      "productos": [
-        { "id": 6, "cantidad": 1 }, 
-        { "id": 7, "cantidad": 1 }, 
-        { "id": 8, "cantidad": 1 }  
-      ]
-    },
-    {
-      "id": 5,
-      "id_usuario": 3,
-      "fecha": "2024-04-19",
-      "total": 22,
-      "direccion": "Calle Lateral, 890",
-      "productos": [
-        { "id": 2, "cantidad": 1 }, 
-        { "id": 10, "cantidad": 1 } 
-      ]
-    },
-    {
-      "id": 6,
-      "id_usuario": 1,
-      "fecha": "2024-04-18",
-      "total": 42.97,
-      "direccion": "Avenida del Parque, 234",
-      "productos": [
-        { "id": 3, "cantidad": 1 },
-        { "id": 5, "cantidad": 1 }, 
-        { "id": 7, "cantidad": 1 }  
-      ]
-    },
-    {
-      "id": 7,
-      "id_usuario": 10,
-      "fecha": "2024-04-17",
-      "total": 27.49,
-      "direccion": "Paseo del Río, 567",
-      "productos": [
-        { "id": 1, "cantidad": 1 }, 
-        { "id": 9, "cantidad": 1 }  
-      ]
-    },
-    {
-      "id": 8,
-      "id_usuario": 5,
-      "fecha": "2024-04-16",
-      "total": 34.98,
-      "direccion": "Calle Nueva, 890",
-      "productos": [
-        { "id": 4, "cantidad": 1 }, 
-        { "id": 6, "cantidad": 1 }  
-      ]
-    },
-    {
-      "id": 9,
-      "id_usuario": 109,
-      "fecha": "2024-04-15",
-      "total": 20.49,
-      "direccion": "Avenida Principal, 123",
-      "productos": [
-        { "id": 8, "cantidad": 1 },  
-        { "id": 10, "cantidad": 1 }  
-      ]
-    },
-    {
-      "id": 10,
-      "id_usuario": 110,
-      "fecha": "2024-04-14",
-      "total": 12.50,
-      "direccion": "Calle Secundaria, 456",
-      "productos": [
-        { "id": 2, "cantidad": 1 }
-      
-      ]
-    }
-  ]
+  {
+    "id": 1,
+    "id_usuario": 1,
+    "fecha": "2024-04-23",
+    "total": 26.48,
+    "direccion": "Calle Principal, 123",
+    "productos": [
+      {
+        "id": 2,
+        "cantidad": 1
+      },
+      {
+        "id": 5,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "id_usuario": 5,
+    "fecha": "2024-04-22",
+    "total": 57.99,
+    "direccion": "Avenida Central, 456",
+    "productos": [
+      {
+        "id": 3,
+        "cantidad": 1
+      },
+      {
+        "id": 9,
+        "cantidad": 1
+      },
+      {
+        "id": 10,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "id_usuario": 7,
+    "fecha": "2024-04-21",
+    "total": 38.97,
+    "direccion": "Calle Secundaria, 789",
+    "productos": [
+      {
+        "id": 1,
+        "cantidad": 1
+      },
+      {
+        "id": 4,
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "id_usuario": 9,
+    "fecha": "2024-04-20",
+    "total": 36.97,
+    "direccion": "Plaza Mayor, 567",
+    "productos": [
+      {
+        "id": 6,
+        "cantidad": 1
+      },
+      {
+        "id": 7,
+        "cantidad": 1
+      },
+      {
+        "id": 8,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "id_usuario": 3,
+    "fecha": "2024-04-19",
+    "total": 22,
+    "direccion": "Calle Lateral, 890",
+    "productos": [
+      {
+        "id": 2,
+        "cantidad": 1
+      },
+      {
+        "id": 10,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "id_usuario": 1,
+    "fecha": "2024-04-18",
+    "total": 42.97,
+    "direccion": "Avenida del Parque, 234",
+    "productos": [
+      {
+        "id": 3,
+        "cantidad": 1
+      },
+      {
+        "id": 5,
+        "cantidad": 1
+      },
+      {
+        "id": 7,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "id_usuario": 10,
+    "fecha": "2024-04-17",
+    "total": 27.49,
+    "direccion": "Paseo del Río, 567",
+    "productos": [
+      {
+        "id": 1,
+        "cantidad": 1
+      },
+      {
+        "id": 9,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "id_usuario": 5,
+    "fecha": "2024-04-16",
+    "total": 34.98,
+    "direccion": "Calle Nueva, 890",
+    "productos": [
+      {
+        "id": 4,
+        "cantidad": 1
+      },
+      {
+        "id": 6,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "id_usuario": 109,
+    "fecha": "2024-04-15",
+    "total": 20.49,
+    "direccion": "Avenida Principal, 123",
+    "productos": [
+      {
+        "id": 8,
+        "cantidad": 1
+      },
+      {
+        "id": 10,
+        "cantidad": 1
+      }
+    ]
+  }
+]
