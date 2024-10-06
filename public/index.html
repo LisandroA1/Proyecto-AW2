@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Inicio Sesion</title>
+</head>
+<body class="bg-gray-950 text-gray-300">
+    <div class="flex justify-center items-center">
+        <div class="bg-gray-800 rounded 3x1 mt-20 p-5">
+            <h1 class="text 2x1">Inicio de Sesion</h1>
+
+            <input type="text" class="w-full mt-10 bg-gray-700 rounded-2x1 p-2 text-gray-200" placeholder="Nombre" id="txtName">
+            <input type="password" class="w-full mt-10 bg-gray-700 rounded-2x1 p-2 text-gray-200" placeholder="Contraseña" id="txtPass">
+
+            <button class="mt-5 bg-transparent p-2 border-2 border-gray-700 rounded-2x1 hover:bg-gray-700 transition-all" id="btnLogin">
+                Iniciar Sesion
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="./auth/auth.js"></script>
+    
+</body>
+</html>

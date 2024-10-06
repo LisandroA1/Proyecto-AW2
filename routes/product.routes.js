@@ -38,19 +38,23 @@ router.get('/precios/:precio', (req, res)=>{
 })
 
 //buscar precio producto por nombre
-router.get('/nombre/:nombre', (req, res)=>{
-    const product_nombre = req.params.nombre
-    const result = productData.find(e => e.titulo == product_nombre)
-    try{
-        if(result){
-            res.status(200).json(result.precio)
-        }else{
-            res.status(300).json('No se encontro el producto!')
+router.get('/categoria/:categoria', (req, res) => {
+    const product_categoria = req.params.categoria.toLowerCase();  // Convertir a minúsculas
+
+    // Filtrar productos por categoría, ignorando mayúsculas/minúsculas
+    const result = productData.filter(e => e.categoria.toLowerCase() === product_categoria);
+
+    try {
+        if (result.length > 0) {
+            res.status(200).json(result); // Devolver el array de productos de la categoría
+        } else {
+            res.status(404).json({ message: 'No se encontraron productos en esta categoría' });
         }
-    }catch{
-        res.send(500).json('Error al buscar el producto!')
+    } catch (error) {
+        res.status(500).json({ message: 'Error al buscar los productos', error: error.message });
     }
-})
+});
+
 
 //Actualizar precio producto
 
@@ -73,3 +77,7 @@ router.put('/precio/update/:id', (req, res) =>{
 })
 
 export default router
+
+
+
+

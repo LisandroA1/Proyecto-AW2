@@ -13,7 +13,7 @@ router.delete('/delete/:id', (req, res) =>{
         if(index !== -1 ){
             salesData.splice(index,1)  /*splice lo que hace es decir eliminame de aca hasta cierto numero de elemento*/
             writeFile('./data/sales.json', JSON.stringify(salesData,null,2)) 
-            res.status(200).json('Usuario Eliminado')
+            res.status(200).json('Venta Eliminada')
         }else{
             res.status(400).json('No se encontro la venta')
         }

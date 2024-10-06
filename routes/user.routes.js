@@ -15,10 +15,12 @@ router.post('/login', (req, res)=>{
 
     if(result){
         const data = {
-            name: result.nombre
-            
+            numeroId: result.id,
+            nombre: result.nombre,
+            apellido: result.apellido,
+            email: result.email
         }
-        res.status(200).json(`Bienvenido ${userName}`)
+        res.status(200).json(data)
     }else{
         res.status(400).json(`${userName} no se encuentra`)
     }
