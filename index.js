@@ -1,6 +1,6 @@
 import express from 'express'
 import {readFile, writeFile} from 'fs/promises'
-
+import 'dotenv/config'
 
 import productRouter from './routes/product.routes.js'
 import salesRouter from './routes/sales.routes.js'
@@ -8,7 +8,7 @@ import userRouter from './routes/user.routes.js'
 
 const app = express()
 
-const port = 3000
+const port = process.env.PORT
 
 
 app.listen(port, () =>{
