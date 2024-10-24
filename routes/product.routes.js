@@ -1,24 +1,24 @@
 import { Router } from "express"
-import {readFile, writeFile} from 'fs/promises'
 import { userInfo } from "os"
-const fileProduct = await readFile('./data/product.json', 'utf-8')
-const productData = JSON.parse(fileProduct)
+import { createProd, todos, buscarporcategoria } from "../db/actions/product.actions.js"
+
 const router = Router()
 //buscar producto por precio
 
-router.get('/todos', (req, res) => {
+router.get('/todos', async(req, res) => {
     try{
-        res.status(200).json(productData);
+        const result = await todos()
+        res.status(200).json(result)
     }catch(error){
         res.status(500).json({ error: 'Error al leer los datos de los productos' })
     }
 });
 router.get('/categoria/:categoria', async (req, res) => {
-    const categoria = req.params.categoria;
+    const categoriaparams = req.params.categoria;
     try {
-        const productosFiltrados = productData.filter(producto => producto.categoria === categoria);
-        console.log(productosFiltrados)
-        res.status(200).json(productosFiltrados);
+        const result = await buscarporcategoria(categoriaparams)
+        console.log(result)
+        res.status(200).json(result);
     } catch (error) {
         res.status(400).json({ error: 'Error al filtrar los productos por categoría' });
     }
@@ -73,6 +73,18 @@ router.put('/precio/update/:id', (req, res) =>{
         }
     }catch(error){
         res.status(500).json('Error al actualizar el salario')
+    }
+})
+
+
+router.post('/create', async(req,res)=>{
+    const {titulo, categoria, precio, imagen} = req.body
+    try{
+        const result = await createProd({titulo, categoria, precio, imagen})
+        console.log(result)
+        res.status(200).json(result)
+    }catch(error){
+        res.status(400).json()
     }
 })
 
