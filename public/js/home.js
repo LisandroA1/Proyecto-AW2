@@ -1,3 +1,5 @@
+import { allProduct, productCategoria } from "../api/product.api.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     cargarProductos(); // Cargar todos los productos por defecto
 
@@ -41,8 +43,8 @@ function resaltarBoton(botonSeleccionado) {
 
 
 function cargarProductos() {
-    fetch('http://localhost:3000/product/todos')
-        .then(response => response.json())
+    // Llama a la función allProduct desde product.api.js
+    allProduct()
         .then(productos => {
             if (productos.length > 0) {
                 mostrarProductos(productos);
@@ -54,13 +56,8 @@ function cargarProductos() {
 }
 
 function cargarProductosPorCategoria(categoria) {
-    fetch(`http://localhost:3000/product/categoria/${categoria}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('No se encontraron productos en esta categoría');
-            }
-            return response.json();
-        })
+    // Llama a la función productCategoria desde product.api.js
+    productCategoria(categoria)
         .then(productos => {
             if (productos.length > 0) {
                 mostrarProductos(productos);

@@ -39,14 +39,14 @@ router.get('/precios/:precio', (req, res)=>{
 
 //buscar precio producto por nombre
 router.get('/categoria/:categoria', (req, res) => {
-    const product_categoria = req.params.categoria.toLowerCase();  // Convertir a minúsculas
+    const product_categoria = req.params.categoria.toLowerCase();  
 
-    // Filtrar productos por categoría, ignorando mayúsculas/minúsculas
+    
     const result = productData.filter(e => e.categoria.toLowerCase() === product_categoria);
 
     try {
         if (result.length > 0) {
-            res.status(200).json(result); // Devolver el array de productos de la categoría
+            res.status(200).json(result); 
         } else {
             res.status(404).json({ message: 'No se encontraron productos en esta categoría' });
         }

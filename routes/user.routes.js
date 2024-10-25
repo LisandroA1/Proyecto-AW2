@@ -11,63 +11,43 @@ const secret = process.env.SECRET
 
 
 
-/*router.post('/login', (req, res)=>{
-    const userName = req.body.nombre
-    const pass = req.body.contraseña
 
-    const result = userData.find(e => e.nombre == userName && e.contraseña == pass)
+router.post('/login', async (req, res) => {
+    const userName = req.body.nombre;
+    const pass = req.body.contraseña;
 
-    if(result){
-        const data = {
-            numeroId: result.id,
-            nombre: result.nombre,
-            apellido: result.apellido,
-            email: result.email
-        }
-        res.status(200).json(data)
-    }else{
-        res.status(400).json(`${userName} no se encuentra`)
-    }
-})
-*/
-router.post('/login', async(req,res)=>{
-    const userName = req.body.nombre
-    const pass = req.body.contraseña
+    const result = await userLogin(userName);
 
-    const result = await userLogin(userName)
-
-    if(!result){
-        return res.status(404).send({status:false})
+    if (!result) {
+        return res.status(404).send({ status: false, message: 'Usuario no encontrado' });
     }
 
-    const controlPass = bcrypt.compareSync(pass, result.contraseña)
-    console.log(controlPass)
+    const controlPass = bcrypt.compareSync(pass, result.contraseña);
+    console.log(controlPass);
 
-    if(!controlPass){
-        return res.status(401).send({status:false})
+    if (!controlPass) {
+        return res.status(401).send({ status: false, message: 'Contraseña incorrecta' });
     }
 
-    const token = jwt.sign({ ...result}, secret , { expiresIn: 86400})
-
-    res.status(200).json(token)
-    
-})
+    const token = jwt.sign({ ...result }, secret, { expiresIn: 86400 });
+    res.status(200).json({ status: true, token, user: result }); 
+});
 
 router.post('/create', async (req, res) => {
     const { nombre, apellido, email, contraseña } = req.body;
 
     try {
-        console.log("Datos recibidos para crear usuario:", { nombre, apellido, email, contraseña }); // Verifica si los datos están siendo recibidos
+        console.log("Datos recibidos para crear usuario:", { nombre, apellido, email, contraseña }); 
         
         const hashedPass = bcrypt.hashSync(contraseña, 8);
-        console.log("Contraseña encriptada:", hashedPass); // Verifica si la contraseña se encripta correctamente
+        console.log("Contraseña encriptada:", hashedPass); 
         
         const result = await newUser({ nombre, apellido, email, contraseña: hashedPass });
-        console.log("Resultado al crear usuario:", result); // Verifica si se crea correctamente
+        console.log("Resultado al crear usuario:", result); 
         
         res.status(200).json(result);
     } catch (error) {
-        console.error("Error en la creación de usuario:", error.message); // Captura más detalles del error
+        console.error("Error en la creación de usuario:", error.message); 
         res.status(400).json({ status: false, message: error.message });
     }
 });
