@@ -1,15 +1,23 @@
-import mongoose from "mongoose";
-const { Schema, models, model, ObjectId } = mongoose;
 
-const SalesSchema = new Schema({
-    id_usuario: {type: ObjectId, required:true, ref:"user"},
-    fecha: {type: Date, required: true},
-    total: {type: Number, required: true},
-    productos: [{type: ObjectId, required: true, ref:"product"}]
-    
-})
+import mongoose from 'mongoose';
 
-const Sale = models.Sale || model('Sale', SalesSchema);
+const saleSchema = new mongoose.Schema({
+    id_usuario: { type: mongoose.Schema.Types.ObjectId, required: true },
+    fecha: { type: Date, default: Date.now },
+    total: { type: Number, required: true },
+    productos: [{
+        productId: { type: mongoose.Schema.Types.ObjectId, required: true }, // Mantén productId para los productos
+        cantidad: { type: Number, required: true },
+        precioUnitario: { type: Number, required: true }, // Si necesitas el precio unitario
+        nombreProducto: { type: String, required: true }, // Si necesitas el nombre del producto
+    }],
+    nombreUsuario: { type: String, required: true },
+});
 
 
-export default Sale
+
+const Sale = mongoose.model('Sale', saleSchema);
+export default Sale;
+
+
+

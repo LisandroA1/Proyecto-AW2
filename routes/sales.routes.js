@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deletes } from "../db/actions/sales.actions.js";
+import { deletes, createOrder } from "../db/actions/sales.actions.js";
 
 const router = Router();
 
@@ -17,5 +17,17 @@ router.delete('/delete/:id', async (req, res) => {
         res.status(500).json('Error al eliminar venta');
     }
 });
+
+router.post('/ventas', async (req, res) => {
+    const { userId, products } = req.body;
+    try {
+        const newOrder = await createOrder(userId, products);
+        res.status(201).json(newOrder);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
 
 export default router;
